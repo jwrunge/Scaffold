@@ -1,0 +1,71 @@
+@use "sass:math";
+
+//Fonts
+$headerFont: Montserrat,sans-serif;
+$bodyFont: Roboto,sans-serif;
+$fontSize: 16px;
+
+//Container styles
+$borderRadius: .2rem;
+$padding: 1rem;
+$transitionSpeed: 1s;
+$boxShadow: .5rem 1rem 2rem rgba(0,0,0,.3);
+$textShadow: .25rem .5rem 1rem rgba(0,0,0,.5);
+$border: 1px solid var(--lighterGray);
+
+//Theme colors
+@mixin theme-colors {
+    --primary: #00865f;
+    --primaryLight:#00e5b0;
+    --primaryDark: #007856;
+    --primaryDarker: darken(--primaryDark, 20%);
+
+    --accent: #df8013;
+    --red: #c91e00;
+    --blue: #4c72e1;
+
+    --gray: #414141;
+    --darkGray: #373737;
+    --darkerGray: #1c1c1c;
+    --lightGray: #464646;
+    --lighterGray: #b3b3b3;
+    --offWhite: #f5f5f5;
+
+    //Theme definitions
+    --lightBg: var(--lighterGray);
+    --lightContainerBg: rgba(255,255,255,.75);
+    --lightBoxBg: white;
+    --lightFontColor: black;
+
+    --darkBg: var(--darkerGray);
+    --darkContainerBg: #3737374B;
+    --darkBoxBg: var(--gray);
+    --darkFontColor: var(--offWhite);
+
+    //Theme variables for use in styles - changeable via JS -- initialize to dark mode
+    --bg: var(--lightBg);
+    --containerBg: var(--lightContainerBg);
+    --boxBg: var(--lightBoxBg),
+    --fontColor: var(--lightFontColor);
+    --primaryColor: var(--primary);
+    --accentColor: var(--accent);
+}
+
+//Breakpoints (min-width values)
+$tablet: 481px;
+$small: 769px;
+$large: 1025px;
+$xl: 1201px;
+
+@mixin for-tablet {
+    @media (min-width: $tablet) { @content; }
+}
+@mixin for-sm {
+    @media (min-width: $small) { @content; }
+}
+@mixin for-lg {
+    @media (min-width: $large) { @content; }
+}
+@mixin for-xl {
+    @media (min-width: $xl) { @content; }
+}

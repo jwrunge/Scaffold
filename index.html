@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Svelte + TS</title>
+  </head>
+  <body>
+    <div class="behinder"></div>
+    <h1>Title</h1>
+    <rad-container max_width="70rem" header="Grid with Text">
+      <div class="topright">
+        <rad-theme-switch></rad-theme-switch>
+      </div>
+
+      <rad-grid max_cols=2 g_align="start">
+        <rad-textblock>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus perspiciatis animi amet ea, veniam velit suscipit in odio similique pariatur officiis ratione quam at iste, hic laudantium ipsum consectetur. Sit?
+        </rad-textblock>
+        <rad-textblock>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti dolorem nobis commodi optio placeat nemo modi adipisci, rerum voluptates alias. Earum provident fugit, nobis doloribus tenetur commodi dolorum repudiandae nemo!
+        </rad-textblock>
+      </rad-grid>
+
+      <h2>Cards</h2>
+      <rad-grid g_align="stretch" max-cols="4">
+        <rad-box>
+          <h3>One</h3>
+          <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium facilis impedit rem sunt saepe quibusdam et quo inventore eum, tempora cumque earum ipsum? A veniam molestias voluptatum tempore, quasi architecto.</div>
+        </rad-box>
+        <rad-box>
+          <h3>Two</h3>
+          <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat facere quibusdam autem itaque quasi! Sed cupiditate delectus rem velit dolorum expedita architecto omnis eius, quos aperiam! Repudiandae necessitatibus minima corporis.</div>
+        </rad-box>
+        <rad-box>
+          <h3>Three</h3>
+          <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolores, voluptates minima laborum iste, quos, distinctio voluptatum earum odit temporibus voluptatem cum sed! Nam excepturi soluta accusantium voluptatibus, suscipit id.</div>
+        </rad-box>
+        <rad-box>
+          <h3>Four</h3>
+          <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta adipisci voluptas, repellendus reprehenderit hic et vitae alias odio ipsa obcaecati harum inventore corrupti vel ex quibusdam magnam placeat eligendi cumque?</div>
+        </rad-box>
+        <rad-box>
+          <h3>Five</h3>
+          <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia fugiat perferendis iste quisquam itaque impedit reiciendis doloremque a cumque. Voluptatum corporis aspernatur odio nostrum modi rem rerum beatae minus error.</div>
+        </rad-box>
+        <rad-box>
+          <h3>Six</h3>
+          <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum sed quo quos nulla sunt cum quae aliquid ab natus suscipit accusamus cupiditate sapiente, odit autem et voluptas. Dicta, neque laborum.</div>
+        </rad-box>
+      </rad-grid>
+    </rad-container>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+
+<style>
+  .topright {
+    position: absolute;
+    top: 1rem; right: 1rem;
+  }
+
+  .behinder {
+    background: blue;
+    width: 30rem;
+    height: 20rem;
+    position: absolute;
+    bottom: 10rem;
+    right: 10rem;
+  }
+</style>
