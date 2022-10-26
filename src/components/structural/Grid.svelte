@@ -1,8 +1,8 @@
 <script lang="ts">
     import {onMount} from "svelte"
 
-    export let g_justify: string = "start"
-    export let g_align: string = "center"
+    export let gridjustify: string = "start"
+    export let gridalign: string = "center"
     export let max_cols: string = "4"
     export let min_cols: string = "1"
 
@@ -15,7 +15,7 @@
 
 <svelte:options tag="rad-grid"/>
 
-<div bind:this={gridEl} class="grid" style="align-items: {g_align}; justify-items: {g_justify};">
+<div bind:this={gridEl} class="grid" style="align-items: {gridalign}; justify-items: {gridjustify};">
     <slot></slot>
 </div>
 

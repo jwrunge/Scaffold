@@ -1,6 +1,9 @@
 <script lang="ts">
+    import { onMount } from "svelte"
     import { uiMode } from "../../scripts/uiStore"
-    import {switchTheme} from "../../scripts/themeSwitch"
+    import {switchTheme, themes} from "../../scripts/themeSwitch"
+
+    export let initialMode: string = "light"
 
     function switchMode() {
         if($uiMode === "light") {
@@ -12,6 +15,11 @@
             $uiMode = "light"
         }
     }
+
+    onMount(()=> {
+        $uiMode = initialMode
+        switchTheme(initialMode)
+    })
 </script>
 
 <svelte:options tag="rad-theme-switch"/>

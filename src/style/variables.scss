@@ -11,10 +11,10 @@ $padding: 1rem;
 $transitionSpeed: 1s;
 $boxShadow: .5rem 1rem 2rem rgba(0,0,0,.3);
 $textShadow: .25rem .5rem 1rem rgba(0,0,0,.5);
-$border: 1px solid var(--lighterGray);
+$border: 1px solid #8a8a8a;
 
 //Theme colors
-@mixin theme-colors {
+@mixin theme-colors {   
     --primary: #00865f;
     --primaryLight:#00e5b0;
     --primaryDark: #007856;
@@ -34,18 +34,18 @@ $border: 1px solid var(--lighterGray);
     //Theme definitions
     --lightBg: var(--lighterGray);
     --lightContainerBg: rgba(255,255,255,.75);
-    --lightBoxBg: white;
+    --lightCardBg: white;
     --lightFontColor: black;
 
     --darkBg: var(--darkerGray);
-    --darkContainerBg: #3737374B;
-    --darkBoxBg: var(--gray);
+    --darkContainerBg: #373737cc;
+    --darkCardBg: var(--gray);
     --darkFontColor: var(--offWhite);
 
     //Theme variables for use in styles - changeable via JS -- initialize to dark mode
     --bg: var(--lightBg);
     --containerBg: var(--lightContainerBg);
-    --boxBg: var(--lightBoxBg),
+    --cardBg: var(--lightCardBg);
     --fontColor: var(--lightFontColor);
     --primaryColor: var(--primary);
     --accentColor: var(--accent);

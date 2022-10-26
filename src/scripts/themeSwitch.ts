@@ -1,5 +1,9 @@
 let properties: string[] = [
-    "bg", "containerBg", "boxBg", "fontColor"
+    "bg", "containerBg", "cardBg", "fontColor"
+]
+
+export const themes: string[] = [
+    "light", "dark"
 ]
 
 export function switchTheme(theme = "light") {

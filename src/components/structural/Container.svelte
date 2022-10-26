@@ -1,44 +1,46 @@
 <script lang="ts">
+    import ContainerControls from "../widgets/ContainerControls.svelte"
     import {createEventDispatcher} from "svelte"
 
-    export let max_width: string = "100%";
+    export let maxwidth: string = "100%";
+    export let minwidth: string = "0";
+    export let basewidth: string = "";
     export let header: string = ""
-    export let topbar: boolean = false
+    export let showtopbar: string = "false"
+    export let showbgcolor: string = "true"
+    export let blurbg: string = "false"
+    export let custombgfilter: string = ""
+    export let dropshadow: string = "false"
+    export let headerlevel: string = "h2"
+    export let extratoppadding: string = "true"
 
     //Controls
-    type customControl = {
-        name: string,
-        icon: string,
-        dispatchMsg: string
-    }
+    export let mac_style_controls: string = "false"
+    export let closable: string = "false"
+    export let control_options: string = "[]"
 
-    export let mac_style_controls: boolean = false
-    export let closable: boolean = false
-    export let control_options: object[] = []
-
-    //Event handlers
-    function handleClose(e: any) {
-        if(e.key == "Enter" || e.key == "Space") {
-            dispatch("close")
-        }
-    }
-
+    //Event handlers (pass through to parent)
     const dispatch: any = createEventDispatcher()
+    function dispatchPassthrough(e: any) { dispatch(e.detail) }
 </script>
 
 <svelte:options tag="rad-container"/>
 
-<div class="container" style="max-width: {max_width}">
-    {#if closable}
-        <div class="control-bar" class:leftAlign={mac_style_controls}>
-            {#if closable}
-                <div class="control-button closer" on:click={()=> dispatch("close")} on:keydown={handleClose}>&times;</div>
-            {/if}
-        </div>
+<div class="container" style="max-width: {maxwidth}; min-width: {minwidth}; width: {basewidth}; {custombgfilter ? `backdrop-filter: ${custombgfilter}` : ""}" class:hasBg={showbgcolor === "true"} class:bgBlur={blurbg === "true"} class:dropshadow={dropshadow === "true"}>
+    <!-- Container controls -->
+    {#if closable || control_options.length}
+        <!-- <ContainerControls {closable} {control_options} {mac_style_controls} on:controlMessage={dispatchPassthrough}></ContainerControls> -->
     {/if}
     
-    <div class="top" class:topbar={topbar}>
-        <h2 class='no-top-margin'>{header}</h2>
+    <div class="top" class:topbar={showtopbar === "true"} class:pad-bottom={header !== ""} class:extra-top-padding={extratoppadding === "true"}>
+        {#if header}
+            {#if headerlevel === "h1"}<h1 class='no-top-margin'>{header}</h1>{/if}
+            {#if headerlevel === "h2"}<h2 class='no-top-margin'>{header}</h2>{/if}
+            {#if headerlevel === "h3"}<h3 class='no-top-margin'>{header}</h3>{/if}
+            {#if headerlevel === "h4"}<h4 class='no-top-margin'>{header}</h4>{/if}
+            {#if headerlevel === "h5"}<h5 class='no-top-margin'>{header}</h5>{/if}
+            {#if headerlevel === "h6"}<h6 class='no-top-margin'>{header}</h6>{/if}
+        {/if}
     </div>
     <div class="content">
         <slot></slot>
@@ -46,26 +48,54 @@
 </div>
 
 <style lang="scss">
+    @use "sass:math";
+    
     .container {      
         position: relative;
         box-sizing: border-box;
         margin: 0 auto;
         border: variables.$border;
         border-radius: variables.$borderRadius;
-        box-shadow: variables.$boxShadow;
-        backdrop-filter: blur(30px);
-        background-color: var(--containerBg);
         overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        &.hasBg {
+            background-color: var(--containerBg);
+        }
+
+        &.bgBlur {
+            backdrop-filter: blur(30px);
+        }
+
+        &.dropshadow {
+            box-shadow: variables.$boxShadow;
+        }
 
         .top {
             padding: variables.$padding;
-            padding-top: variables.$padding * 2;
-            h2 { margin: 0; }
+
+            &.extra-top-padding {
+                padding-top: variables.$padding * 2;
+            }
+
+            h1, h2, h3, h4, h5, h6 { 
+                margin: 0; 
+                margin-bottom: math.div(variables.$padding, 3); 
+            }
+
+            &.pad-bottom {
+                padding-bottom: 0;
+            }
         }
         
         .topbar {
             background: var(--primary);
-            h2 { color: white; }
+            h1, h2, h3, h4, h5, h6 { 
+                color: white; 
+                padding-bottom: math.div(variables.$padding, 2);
+                margin-bottom: variables.$padding; 
+            }
         }
 
         .content {

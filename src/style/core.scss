@@ -8,6 +8,7 @@
   //Theming
   color-scheme: light dark;
   @include variables.theme-colors;
+  --window-height: var(--window-height);
 
   //Background props
   color: var(--fontColor);
@@ -23,11 +24,12 @@
     font-size: 3.5rem;
     text-align: center;
     text-shadow: variables.$textShadow;
+    margin-bottom: variables.$padding;
   }
 
   h2, h3, h4, h5 {
       color: var(--fontColor);
-      margin-bottom: math.div(variables.$padding, 3);
+      margin-bottom: math.div(variables.$padding, 2);
   }
 
   button {
@@ -38,4 +40,8 @@
           filter: brightness(3.5);
       }
   }
+}
+
+html, body {
+  margin: 0; padding: 0;
 }
