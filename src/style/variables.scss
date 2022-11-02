@@ -36,11 +36,13 @@ $border: 1px solid #8a8a8a;
     --lightContainerBg: rgba(255,255,255,.75);
     --lightCardBg: white;
     --lightFontColor: black;
+    --lightHeaderPrimary: var(--primary)
 
     --darkBg: var(--darkerGray);
     --darkContainerBg: #373737cc;
     --darkCardBg: var(--gray);
     --darkFontColor: var(--offWhite);
+    --darkHeaderPrimary: var(--primaryLight)
 
     //Theme variables for use in styles - changeable via JS -- initialize to dark mode
     --bg: var(--lightBg);
@@ -49,6 +51,7 @@ $border: 1px solid #8a8a8a;
     --fontColor: var(--lightFontColor);
     --primaryColor: var(--primary);
     --accentColor: var(--accent);
+    --headerPrimary: var(--darkHeaderPrimary)
 }
 
 //Breakpoints (min-width values)

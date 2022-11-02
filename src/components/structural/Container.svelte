@@ -1,8 +1,8 @@
 <script lang="ts">
     import ContainerControls from "../widgets/ContainerControls.svelte"
-    import {createEventDispatcher} from "svelte"
+    import {onMount, createEventDispatcher} from "svelte"
 
-    export let maxwidth: string = "100%";
+    export let maxwidth: string = "";
     export let minwidth: string = "0";
     export let basewidth: string = "";
     export let header: string = ""
@@ -13,6 +13,21 @@
     export let dropshadow: string = "false"
     export let headerlevel: string = "h2"
     export let extratoppadding: string = "true"
+    export let card: string = "false"
+    export let mt: string = "0";
+    export let mb: string = "0";
+    export let ml: string = "auto";
+    export let mr: string = "auto";
+    export let mx: string = "";
+    export let my: string = "";
+    export let m: string = "";
+
+    let margins = {
+        t: mt,
+        b: mb,
+        l: ml,
+        r: mr
+    }
 
     //Controls
     export let mac_style_controls: string = "false"
@@ -22,11 +37,33 @@
     //Event handlers (pass through to parent)
     const dispatch: any = createEventDispatcher()
     function dispatchPassthrough(e: any) { dispatch(e.detail) }
+
+    onMount(()=> {
+        //Determine margins
+        if(mx) {
+            margins.l = mx
+            margins.r = mx
+        }
+
+        if(my) {
+            margins.t = my
+            margins.b = my
+        }
+
+        if(m) {
+            margins.l = m
+            margins.r = m
+            margins.t = m
+            margins.b = m
+        }
+    })
 </script>
 
 <svelte:options tag="rad-container"/>
 
-<div class="container" style="max-width: {maxwidth}; min-width: {minwidth}; width: {basewidth}; {custombgfilter ? `backdrop-filter: ${custombgfilter}` : ""}" class:hasBg={showbgcolor === "true"} class:bgBlur={blurbg === "true"} class:dropshadow={dropshadow === "true"}>
+<div class="container" class:hasBg={showbgcolor === "true"} class:bgBlur={blurbg === "true"} class:dropshadow={dropshadow === "true"} class:card={card === "true"} class:squared={maxwidth === "100%" || maxwidth === "100vw"}
+    style="max-width: {maxwidth}; min-width: {minwidth}; width: {basewidth}; {custombgfilter ? `backdrop-filter: ${custombgfilter}` : ""} margin: {margins.t} {margins.r} {margins.b} {margins.l}"
+>
     <!-- Container controls -->
     {#if closable || control_options.length}
         <!-- <ContainerControls {closable} {control_options} {mac_style_controls} on:controlMessage={dispatchPassthrough}></ContainerControls> -->
@@ -53,15 +90,21 @@
     .container {      
         position: relative;
         box-sizing: border-box;
-        margin: 0 auto;
         border: variables.$border;
-        border-radius: variables.$borderRadius;
+        &:not(.squared) {
+            border-radius: variables.$borderRadius;
+        }
         overflow: hidden;
         width: 100%;
         height: 100%;
 
         &.hasBg {
-            background-color: var(--containerBg);
+            &:not(.card) {
+                background-color: var(--containerBg);
+            }
+            &.card {
+                background-color: var(--cardBg);
+            }
         }
 
         &.bgBlur {

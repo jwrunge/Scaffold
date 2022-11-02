@@ -1,0 +1,17 @@
+{
+    "globalCssLoc": "",
+    "cssOutputDest": "",
+    "jsOutputDest": "",
+    "prefabs": [ "all" ],
+    "overrideVariableDefaults": false,
+    "bindings": {
+        "componentName": {
+            "cssSelector": "--variable",
+            "cssSelector2": "--variable2"
+        },
+        "component2": {
+            "cssSelector": "--variable",
+            "cssSelector2": "--variable"
+        }
+    }
+}

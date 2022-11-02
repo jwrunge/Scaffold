@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Svelte + TS</title>
+    <title>Design System</title>
   </head>
   <body>
     <rad-window registerwsfunc="true"></rad-window>
@@ -27,27 +27,32 @@
 
         <h2>Cards</h2>
         <rad-grid gridalign="stretch" max_cols="4">
-          <rad-container header="One" headerlevel="h3" extratoppadding="false">
+          <rad-container header="One" headerlevel="h3" extratoppadding="false" showtopbar="true" card="true">
             <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium facilis impedit rem sunt saepe quibusdam et quo inventore eum, tempora cumque earum ipsum? A veniam molestias voluptatum tempore, quasi architecto.</div>
           </rad-container>
-          <rad-container header="Two" headerlevel="h3" extratoppadding="false">
+          <rad-container header="Two" headerlevel="h3" extratoppadding="false" card="true">
             <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat facere quibusdam autem itaque quasi! Sed cupiditate delectus rem velit dolorum expedita architecto omnis eius, quos aperiam! Repudiandae necessitatibus minima corporis.</div>
           </rad-container>
-          <rad-container header="Three" headerlevel="h3" extratoppadding="false">
+          <rad-container header="Three" headerlevel="h3" extratoppadding="false" showtopbar="true" card="true">
             <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolores, voluptates minima laborum iste, quos, distinctio voluptatum earum odit temporibus voluptatem cum sed! Nam excepturi soluta accusantium voluptatibus, suscipit id.</div>
           </rad-container>
-          <rad-container header="Four" headerlevel="h3" extratoppadding="false">
+          <rad-container header="Four" headerlevel="h3" extratoppadding="false" card="true">
             <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta adipisci voluptas, repellendus reprehenderit hic et vitae alias odio ipsa obcaecati harum inventore corrupti vel ex quibusdam magnam placeat eligendi cumque?</div>
           </rad-container>
-          <rad-container header="Five" headerlevel="h3" extratoppadding="false">
+          <rad-container header="Five" headerlevel="h3" extratoppadding="false" card="true">
             <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia fugiat perferendis iste quisquam itaque impedit reiciendis doloremque a cumque. Voluptatum corporis aspernatur odio nostrum modi rem rerum beatae minus error.</div>
           </rad-container>
-          <rad-container header="Six" headerlevel="h3" extratoppadding="false">
+          <rad-container header="Six" headerlevel="h3" extratoppadding="false" showtopbar="true" card="true">
             <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum sed quo quos nulla sunt cum quae aliquid ab natus suscipit accusamus cupiditate sapiente, odit autem et voluptas. Dicta, neque laborum.</div>
           </rad-container>
         </rad-grid>
       </rad-container>
     </rad-scrollable>
+
+    <rad-container maxwidth="100%" mt="2rem">
+      <h1 class="primary">Title 2</h1>
+    </rad-container>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 let properties: string[] = [
-    "bg", "containerBg", "cardBg", "fontColor"
+    "bg", "containerBg", "cardBg", "fontColor", "headerPrimary"
 ]
 
 export const themes: string[] = [

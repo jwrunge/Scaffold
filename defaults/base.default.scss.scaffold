@@ -1,0 +1,11 @@
+/* These variables are consistent across themes */
+#constants {
+    --border-width: 1px;
+    --border-radius: 5px;
+}
+
+/* These vary by theme - changed as --[theme_name]-variable-name - additional themes need only define variables */
+#variables {
+    --border-color: "white";
+    --color: "lightgray";
+}

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "useDefineForClassFields": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "strict": true,
+    "sourceMap": true,
+    "outDir": "dist/cli",
+    "forceConsistentCasingInFileNames": true
+  },
+  "lib": ["es2015"],
+  "include": [
+    "cli/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}
