@@ -63,7 +63,7 @@ export function createNewTheme(config: cfg, name: string = "", ext?: string) {
                 resolve(promptName("Your theme names are limited to 64 characters. Please pick another name: "))
             }
             else if(newName !== n) {
-                rl.question(`Accounting for illegal characters, we've converted your selected theme name to ${newName}. Is that OK? (Y)/n `, (resp: string = "Y")=> {
+                rl.question(`Accounting for for Scaffold's case and character rules, we've converted your selected theme name to "${newName}". Is that OK? (Y)/n `, (resp: string = "Y")=> {
                     resp = resp.toLowerCase()
                     if(resp === "n") resolve(promptName())
                     else resolve(newName)
