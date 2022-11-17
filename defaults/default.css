@@ -1,0 +1,9 @@
+:root {
+    --font-color: "white";
+    --background-color: "black";
+}
+
+:root html, :root body {
+    margin: 0; padding: 0;
+    background: --background-color;
+}
